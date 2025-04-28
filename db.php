@@ -1,8 +1,9 @@
 <?php
-$host = 'localhost';
-$dbname = 'todo_app';
-$username = 'root';
-$password = '';
+// InfinityFree database configuration
+$host = 'sqlXXX.epizy.com'; // Replace with your InfinityFree host
+$dbname = 'epiz_XXX_database'; // Replace with your database name
+$username = 'epiz_XXX_username'; // Replace with your username
+$password = 'your_password'; // Replace with your password
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -27,7 +28,7 @@ try {
     )");
     
 } catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+    die(json_encode(['success' => false, 'message' => 'Database connection failed', 'error' => $e->getMessage()]));
 }
 
 // Start session if not already started
